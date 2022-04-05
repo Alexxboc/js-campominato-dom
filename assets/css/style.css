@@ -1,0 +1,77 @@
+/* Common rules */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Utilities */
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.selected {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+/* Header */
+nav.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+nav select {
+    margin: 0 0.5rem;
+}
+
+nav button {
+    padding: 0 20px;
+}
+
+/* Main */
+
+main {
+    background-color: aquamarine;
+    padding: 5rem 0;
+    height: calc(100vh - 154px);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.field {
+   width: 500px;
+   margin: auto;
+  
+}
+
+.cells {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+/* Footer */
+
+  footer {
+      height: 70px;
+      font-size: 20px;
+}
+
+footer .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+}
