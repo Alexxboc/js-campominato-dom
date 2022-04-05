@@ -33,6 +33,8 @@ quando si clicca su una bomba e finisce la partita, il software scopre tutte le 
 // Seleziono il bottone nella DOM dal quale estrapolare il livello di difficoltà
 const button = document.getElementById('button');
 // console.log(button);
+
+let bombArray;
 // Creo un evento di ascolto dove il giocatore selezionerà il livello di difficoltà
 button.addEventListener('click', function(){
     // console.log('click');
@@ -58,12 +60,16 @@ button.addEventListener('click', function(){
       }
     // console.log(number_of_cells, number_of_cols);
     // Genero le griglie in base al numero di celle e di colonne
-    generateGrid(number_of_cells, number_of_cols)
-    // Coloro le celle in base alla selezione della casella
-    addActiveStyle('.cell','selected_blue')
+    generateGrid(number_of_cells, number_of_cols) 
+
+    addActiveStyle('.cell')
+    
     // Dichiaro una variabile per la lista di celle che contengono le bombe
-    let bombArray = generateBombNumbers(1,number_of_cells)
-    console.log(bombArray);
+    bombArray = generateBombNumbers(1,number_of_cells)
+    console.log(bombArray); 
+    
+    
+    
 })
 
 // Creo una funzione che generi la griglia
@@ -85,17 +91,23 @@ function generateGrid (number_of_cells, number_of_cols) {
 }
 
 // Creo una funzione per cambiare lo stile delle caselle al click
-function addActiveStyle (selector, style_class) {
+function addActiveStyle (selector) {
     // Seleziono tutti gli elememnti della DOM da modificare
     const cells = document.querySelectorAll(selector);
     // Creo un ciclo for per tutti gli elementi
     for (let i = 0; i < cells.length; i++) {
         const cellsElement = cells[i];
+        console.log(i);
         // Creo un evento al click
         cellsElement.addEventListener('click', function () {
-            //console.log(this);
+            console.log(this);
             // Coloro la casella 
-            this.classList.add(style_class);
+            if(bombArray.includes(parseInt(this.innerHTML))){
+              this.classList.add('selected_red');
+            } else {
+              this.classList.add('selected_blue');
+            }
+            
           });
         
     }
@@ -120,9 +132,11 @@ function generateBombNumbers (min,max) {
       bombNumbers.push(randomNumber)
     }
   }
-  console.log(bombNumbers);
+  // console.log(bombNumbers);
   return bombNumbers
 
 }
+
+// Coloro le celle in base alla selezione della casella
 
 

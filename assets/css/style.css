@@ -12,9 +12,14 @@
     margin: auto;
 }
 
-.selected {
+.selected_blue {
     background-color: cornflowerblue;
     color: white;
+}
+
+.selected_red {
+    background-color: red;
+    
 }
 
 /* Header */
