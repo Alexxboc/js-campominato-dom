@@ -57,8 +57,13 @@ button.addEventListener('click', function(){
           break;
       }
     // console.log(number_of_cells, number_of_cols);
+    // Genero le griglie in base al numero di celle e di colonne
     generateGrid(number_of_cells, number_of_cols)
-    addActiveStyle('.cell','selected')
+    // Coloro le celle in base alla selezione della casella
+    addActiveStyle('.cell','selected_blue')
+    // Dichiaro una variabile per la lista di celle che contengono le bombe
+    let bombArray = generateBombNumbers(1,number_of_cells)
+    console.log(bombArray);
 })
 
 // Creo una funzione che generi la griglia
@@ -103,19 +108,21 @@ function getRndInteger(min,max) {
   
 
 // Creo una funzione che crei una lista co i numeri da assegnare alle bombe
-function generateBombNumbers (min, max) {
+function generateBombNumbers (min,max) {
   // Dichiaro una variabile per la lista di numeri
   const bombNumbers = []
-  // Creo un ciclo while 
-  while(bombNumbers.length != max){
+  // Creo un ciclo while per generare i numeri casuali fino a un massimo
+  while(bombNumbers.length < 16){
+    // Dichiaro una varibile per i numeri casuali
     const randomNumber = getRndInteger(min,max)
+    // 
     if(!bombNumbers.includes(randomNumber)){
       bombNumbers.push(randomNumber)
     }
   }
+  console.log(bombNumbers);
   return bombNumbers
+
 }
-
-
 
 
