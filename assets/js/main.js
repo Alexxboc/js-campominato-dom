@@ -37,8 +37,6 @@ const button = document.getElementById('button');
 // Dichiaro una varibile per la lista di numeri “bomba“
 let bombArray;
 
-// Dichiaro una variabile per la perdita
-let play = true;
 // Creo un evento di ascolto dove il giocatore selezionerà il livello di difficoltà
 button.addEventListener('click', function(){
     // console.log('click');
@@ -71,9 +69,6 @@ button.addEventListener('click', function(){
     // Dichiaro una variabile per la lista di celle che contengono le bombe
     bombArray = generateBombNumbers(1,number_of_cells)
     console.log(bombArray); 
-    
-    
-    
 })
 
 // Creo una funzione che generi la griglia
@@ -110,7 +105,7 @@ function addActiveStyle (selector) {
               this.classList.add('selected_red');
               const clock = setTimeout(function(){
                 alert('Hai calpestato una bomba, gioco terminato')
-              }, 1000)
+              }, 1000);
               
             } else {
               this.classList.add('selected_blue');
@@ -118,12 +113,6 @@ function addActiveStyle (selector) {
           });
       }
 }
-        
-           
-
-          
-           
-            
 
 // Creo una funzione che generi numeri casuali con un range
 function getRndInteger(min,max) {
@@ -146,9 +135,24 @@ function generateBombNumbers (min,max) {
   }
   // console.log(bombNumbers);
   return bombNumbers
-
 }
+        
+           
+// altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
+// La partita termina quando:
+//  il giocatore clicca su una bomba
+// o raggiunge il numero massimo possibile di numeri consentiti.
+          
+/* 
 
-// Coloro le celle in base alla selezione della casella
+la partita termina quando il giocatore raggiunge il numero massimo di numeri consentiti, 
+quindi devo sottrarre al numero totale delle celle il numero delle bombe.
+- ho bisogno di una costante che contenga quel numero
+- ho bisogno del numero delle celle per ogni livello
+- ho bisogno di fare un ciclo di tutte le celle e creare le condizioni
+
+*/ 
+            
+
 
 
