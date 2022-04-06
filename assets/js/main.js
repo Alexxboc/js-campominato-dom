@@ -34,7 +34,11 @@ quando si clicca su una bomba e finisce la partita, il software scopre tutte le 
 const button = document.getElementById('button');
 // console.log(button);
 
+// Dichiaro una varibile per la lista di numeri “bomba“
 let bombArray;
+
+// Dichiaro una variabile per la perdita
+let play = true;
 // Creo un evento di ascolto dove il giocatore selezionerà il livello di difficoltà
 button.addEventListener('click', function(){
     // console.log('click');
@@ -101,17 +105,22 @@ function addActiveStyle (selector) {
         // Creo un evento al click
         cellsElement.addEventListener('click', function () {
             console.log(this);
-            // Coloro la casella 
+            // Coloro la casella
             if(bombArray.includes(parseInt(this.innerHTML))){
               this.classList.add('selected_red');
+              alert('Hai calpestato una bomba, gico terminato')
             } else {
               this.classList.add('selected_blue');
             }
-            
           });
-        
-    }
+      }
 }
+        
+           
+
+          
+           
+            
 
 // Creo una funzione che generi numeri casuali con un range
 function getRndInteger(min,max) {
