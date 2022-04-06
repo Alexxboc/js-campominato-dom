@@ -108,7 +108,10 @@ function addActiveStyle (selector) {
             // Coloro la casella
             if(bombArray.includes(parseInt(this.innerHTML))){
               this.classList.add('selected_red');
-              alert('Hai calpestato una bomba, gico terminato')
+              const clock = setTimeout(function(){
+                alert('Hai calpestato una bomba, gioco terminato')
+              }, 1000)
+              
             } else {
               this.classList.add('selected_blue');
             }
